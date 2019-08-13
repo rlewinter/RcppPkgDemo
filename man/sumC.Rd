@@ -16,7 +16,9 @@ The sum of all elements of x as a double
 Sum NumericVector elements using C++
 }
 \examples{
+\dontrun{
 x <- runif(1e3)
 print(sumC(x))
+}
 
 }

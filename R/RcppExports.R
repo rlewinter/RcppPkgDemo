@@ -6,7 +6,9 @@
 #' @return None
 #'
 #' @examples
+#' \dontrun{
 #' hello()
+#' }
 #'
 hello <- function() {
     invisible(.Call('_RcppPkgDemo_hello', PACKAGE = 'RcppPkgDemo'))
@@ -17,7 +19,9 @@ hello <- function() {
 #' @return List("foo" = 0.0, "bar" = 1.0)
 #'
 #' @examples
+#' \dontrun{
 #' hello2()
+#' }
 #'
 hello2 <- function() {
     .Call('_RcppPkgDemo_hello2', PACKAGE = 'RcppPkgDemo')
@@ -30,8 +34,10 @@ hello2 <- function() {
 #' @return The sum of all elements of x as a double
 #'
 #' @examples
+#' \dontrun{
 #' x <- runif(1e3)
 #' print(sumC(x))
+#' }
 #'
 sumC <- function(x) {
     .Call('_RcppPkgDemo_sumC', PACKAGE = 'RcppPkgDemo', x)
@@ -44,8 +50,10 @@ sumC <- function(x) {
 #' @return The sum of all elements of x as a double
 #'
 #' @examples
+#' \dontrun{
 #' x <- runif(1e3)
 #' print(sumI(x))
+#' }
 #'
 sumI <- function(x) {
     .Call('_RcppPkgDemo_sumI', PACKAGE = 'RcppPkgDemo', x)

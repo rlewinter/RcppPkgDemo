@@ -55,7 +55,9 @@ using namespace Rcpp;
 //' @return None
 //'
 //' @examples
+//' \dontrun{
 //' hello()
+//' }
 //'
 // [[Rcpp::export]]
 void hello() {
@@ -67,7 +69,9 @@ void hello() {
 //' @return List("foo" = 0.0, "bar" = 1.0)
 //'
 //' @examples
+//' \dontrun{
 //' hello2()
+//' }
 //'
 // [[Rcpp::export]]
 List hello2() {
@@ -100,8 +104,8 @@ List hello2() {
 
 /*** R
 hello()
-  hello2()
-  */
+hello2()
+*/
 
 // Since this project has to do with choosing algorithms for generating random
 // numbers, I'll be using the R package microbenchmark to compare
@@ -118,8 +122,10 @@ hello()
 //' @return The sum of all elements of x as a double
 //'
 //' @examples
+//' \dontrun{
 //' x <- runif(1e3)
 //' print(sumC(x))
+//' }
 //'
 // [[Rcpp::export]]
 double sumC(NumericVector x) {
@@ -138,8 +144,10 @@ double sumC(NumericVector x) {
 //' @return The sum of all elements of x as a double
 //'
 //' @examples
+//' \dontrun{
 //' x <- runif(1e3)
 //' print(sumI(x))
+//' }
 //'
 // [[Rcpp::export]]
 double sumI(NumericVector x) {

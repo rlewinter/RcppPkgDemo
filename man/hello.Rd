@@ -13,6 +13,8 @@ None
 Prints "Hello, World!"
 }
 \examples{
+\dontrun{
 hello()
+}
 
 }
