@@ -22,9 +22,13 @@ using namespace Rcpp;
 // This project uses Rcpp to create an R package implemented in C++.
 // Most of the behind-the-scenes work is done automatically by devtools.
 //
+// Run Rcpp::compileAttributes() whenever functions are added, removed, or
+// have their signatures changed. This is automatically done when the package
+// is built if you are building with RStudio or devtools.
+//
 // Never use library() or require(), since these modify the search path.
 // Use the DESCRIPTION file to specify package requirements.
-// Calling devtools::use_package() automatically updates DESCRIPTION.
+// Calling usethis::use_package() automatically updates DESCRIPTION.
 //
 // To make C++ classes available as reference classes in R with Rcpp modules,
 // call Rcpp::loadRcppModules()
