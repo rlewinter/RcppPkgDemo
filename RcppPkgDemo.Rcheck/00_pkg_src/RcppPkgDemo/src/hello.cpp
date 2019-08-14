@@ -1,7 +1,6 @@
 #include <Rcpp.h>
 using namespace Rcpp;
-//' @useDynLib RcppPkgDemo
-//' @importFrom Rcpp sourceCpp
+//' @import Rcpp
 
 // Examples and information in this file are adapted from the following sources:
 //   -Aditi Garg: http://heather.cs.ucdavis.edu/~matloff/158/RcppTutorial.pdf
@@ -23,8 +22,10 @@ using namespace Rcpp;
 //
 // This project uses Rcpp to create an R package implemented in C++.
 // Most of the behind-the-scenes work is done automatically by devtools.
-// Note: after creating a project with initial files for making a package,
-// run usethis::use_rcpp()
+//
+// Run Rcpp::compileAttributes() whenever functions are added, removed, or
+// have their signatures changed. This is automatically done when the package
+// is built if you are building with RStudio or devtools.
 //
 // Never use library() or require(), since these modify the search path.
 // Use the DESCRIPTION file to specify package requirements.
@@ -37,11 +38,8 @@ using namespace Rcpp;
 // comments into .Rd files. These are the help files displayed when you
 // run ?foo() in the R console, where foo() is a function.
 //
-// Use devtools::document() to process roxygen2 comments
-// Run Rcpp::compileAttributes() whenever functions are added, removed, or
-// have their signatures changed. This is automatically done when the package
-// is built if you are building with RStudio or devtools.
 // Use devtools::build() to bundle up the package in a .tar.gz
+// Use devtools::document() to process roxygen2 comments
 //
 // Learn more about Rcpp at:
 //   http://www.rcpp.org/
@@ -112,6 +110,75 @@ List hello2() {
 /*** R
 hello()
 hello2()
+*/
+
+// Since this project has to do with choosing algorithms for generating random
+// numbers, I'll be using the R package microbenchmark to compare
+// implementations.
+// The next cpp chunks implement a sum function using a basic loop, and then
+// using an iterator.
+// In the chunk below that, the same function is implemented in R,
+// and the performance results for a 1000 item vector are compared.
+
+//' sumC
+//' Sum NumericVector elements using C++
+//'
+//' @param x NumericVector to sum
+//'
+//' @return The sum of all elements of x as a double
+//'
+//' @examples
+//' \dontrun{
+//' x <- runif(1e3)
+//' print(sumC(x))
+//' }
+//' @export
+// [[Rcpp::export]]
+double sumC(NumericVector x) {
+  int n = x.size();
+  double total = 0;
+  for (int i = 0; i < n; ++i) {
+    total += x[i];
+  }
+  return total;
+}
+
+//' sumI
+//'
+//' Sum NumericVector elements using C++ with an iterator
+//'
+//' @param x NumericVector to sum
+//'
+//' @return The sum of all elements of x as a double
+//'
+//' @examples
+//' \dontrun{
+//' x <- runif(1e3)
+//' print(sumI(x))
+//' }
+//' @export
+// [[Rcpp::export]]
+double sumI(NumericVector x) {
+  double total = 0;
+
+  NumericVector::iterator it;
+  for (it = x.begin(); it != x.end(); ++it) {
+    total += *it;
+  }
+  return total;
+}
+
+/*** R
+sumR <- function(x) {
+  total <- 0
+  for (i in seq_along(x)) {
+    total <- total + x[i]
+  }
+  total
+}
+
+x <- runif(1e3)
+microbenchmark::microbenchmark(sumC(x), sumI(x), sumR(x))
 */
 
 

@@ -1,0 +1,8 @@
+* installing *source* package ‘RcppPkgDemo’ ...
+** libs
+/home/remy/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++ -std=gnu++11 -I/home/remy/anaconda3/lib/R/include -DNDEBUG  -I"/home/remy/R/x86_64-pc-linux-gnu-library/3.4/Rcpp/include" -D_FORTIFY_SOURCE=2 -O2 -I/home/remy/anaconda3/include   -fpic  -fvisibility-inlines-hidden  -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -pipe -I/home/remy/anaconda3/include -c RcppExports.cpp -o RcppExports.o
+/bin/sh: 1: /home/remy/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++: not found
+/home/remy/anaconda3/lib/R/etc/Makeconf:167: recipe for target 'RcppExports.o' failed
+make: *** [RcppExports.o] Error 127
+ERROR: compilation failed for package ‘RcppPkgDemo’
+* removing ‘/home/remy/RcppPkgDemo/RcppPkgDemo.Rcheck/RcppPkgDemo’
