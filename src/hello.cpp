@@ -1,70 +1,20 @@
 #include <Rcpp.h>
 using namespace Rcpp;
-//' @useDynLib RcppPkgDemo
-//' @importFrom Rcpp sourceCpp
-
-// Examples and information in this file are adapted from the following sources:
-//   -Aditi Garg: http://heather.cs.ucdavis.edu/~matloff/158/RcppTutorial.pdf
-//   -Hadley Wickham's "R Packages", website at http://r-pkgs.had.co.nz
-//     -this is available on Safari Online through an NEU account
-//   -Dirk Eddelbuettel: http://dirk.eddelbuettel.com/code/rcpp.html
-//     -Rccp vignettes, accessible by running vignette("package-name")
-//      in the R console, e.g. vignette("Rcpp-packages")
-//   -Official R extensions manual:
-//      https://cran.r-project.org/doc/manuals/R-exts.html
-//
-// You can learn more about package authoring with RStudio at:
-//   http://r-pkgs.had.co.nz/
-//
-// Some useful keyboard shortcuts for package authoring:
-//   Build and Reload Package:  'Ctrl + Shift + B'
-//   Check Package:             'Ctrl + Shift + E'
-//   Test Package:              'Ctrl + Shift + T'
-//
-// This project uses Rcpp to create an R package implemented in C++.
-// Most of the behind-the-scenes work is done automatically by devtools.
-// Note: after creating a project with initial files for making a package,
-// run usethis::use_rcpp()
-//
-// Never use library() or require(), since these modify the search path.
-// Use the DESCRIPTION file to specify package requirements.
-// Calling usethis::use_package() automatically updates DESCRIPTION.
-//
-// To make C++ classes available as reference classes in R with Rcpp modules,
-// call Rcpp::loadRcppModules()
-//
-// I use roxygen2 to manage documentation, which turns specially formatted
-// comments into .Rd files. These are the help files displayed when you
-// run ?foo() in the R console, where foo() is a function.
-//
-// Use devtools::document() to process roxygen2 comments
-// Run Rcpp::compileAttributes() whenever functions are added, removed, or
-// have their signatures changed. This is automatically done when the package
-// is built if you are building with RStudio or devtools.
-// Use devtools::build() to bundle up the package in a .tar.gz
-//
-// Learn more about Rcpp at:
-//   http://www.rcpp.org/
-//   http://adv-r.had.co.nz/Rcpp.html
-//   http://gallery.rcpp.org/
-//
-
 
 // Here are some simple examples of exporting a C++ function to R and writing
 // documentation with roxygen2
 
 //' hello
 //'
-//' Prints "Hello, World!"
+//' hey hi hello
 //'
-//' @return None
+//' @return "Hello, world!"
 //'
 //' @examples
-//' \dontrun{
 //' hello()
-//' }
+//'
 //' @export
-// [[Rcpp::export]]
+// [[Rcpp::export(rng=false)]]
 void hello() {
   Rprintf("Hello, world!\n");
 }
@@ -76,11 +26,10 @@ void hello() {
 //' @return List("foo" = 0.0, "bar" = 1.0)
 //'
 //' @examples
-//' \dontrun{
 //' hello2()
-//' }
+//'
 //' @export
-// [[Rcpp::export]]
+// [[Rcpp::export(rng=false)]]
 List hello2() {
   CharacterVector x = CharacterVector::create( "foo", "bar" )  ;
   NumericVector y   = NumericVector::create( 0.0, 1.0 ) ;
@@ -88,22 +37,6 @@ List hello2() {
 
   return z ;
 }
-
-// Rcpp's functionality is provided through a set of C++ classes that wrap
-// R data structures:
-//   NumericVector, IntegerVector, CharacterVector, LogicalVector, int,
-//   double, bool, String, IntegerMatrix, NumericMatrix, LogicalMatrix,
-//   CharacterMatrix, List, DataFrame, etc.
-//
-// Rcpp knows how to convert from many STL data structures to their R
-// equivalents, so you can return them from your functions without
-// explicitly converting to R data structures.
-//
-// Rcpp also provides functions that work similarly to the equivalents in R:
-//   any(), all(), head(), tail(), abs(), ceil(), choose(), factorial(),
-//   mean(), sum(), sd(), cumsum(), match(), duplicated(), unique(), dnorm(),
-//   runif(), etc.
-
 
 // You can include R code blocks in C++ files processed with sourceCpp
 // (useful for testing and development). The R code will be automatically

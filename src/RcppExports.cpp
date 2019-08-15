@@ -9,7 +9,6 @@ using namespace Rcpp;
 void hello();
 RcppExport SEXP _RcppPkgDemo_hello() {
 BEGIN_RCPP
-    Rcpp::RNGScope rcpp_rngScope_gen;
     hello();
     return R_NilValue;
 END_RCPP
@@ -19,7 +18,6 @@ List hello2();
 RcppExport SEXP _RcppPkgDemo_hello2() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     rcpp_result_gen = Rcpp::wrap(hello2());
     return rcpp_result_gen;
 END_RCPP
@@ -29,7 +27,6 @@ double sumC(NumericVector x);
 RcppExport SEXP _RcppPkgDemo_sumC(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
     rcpp_result_gen = Rcpp::wrap(sumC(x));
     return rcpp_result_gen;
@@ -40,7 +37,6 @@ double sumI(NumericVector x);
 RcppExport SEXP _RcppPkgDemo_sumI(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
     rcpp_result_gen = Rcpp::wrap(sumI(x));
     return rcpp_result_gen;

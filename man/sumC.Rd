@@ -18,8 +18,7 @@ sumC
 Sum NumericVector elements using C++
 }
 \examples{
-\dontrun{
 x <- runif(1e3)
 print(sumC(x))
-}
+
 }

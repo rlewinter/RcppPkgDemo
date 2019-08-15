@@ -7,13 +7,12 @@
 hello()
 }
 \value{
-None
+"Hello, world!"
 }
 \description{
-Prints "Hello, World!"
+hey hi hello
 }
 \examples{
-\dontrun{
 hello()
-}
+
 }

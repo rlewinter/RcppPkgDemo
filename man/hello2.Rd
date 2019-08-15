@@ -13,7 +13,6 @@ List("foo" = 0.0, "bar" = 1.0)
 Creates a list where keys are "foo" and "bar", and values are 0 and 1
 }
 \examples{
-\dontrun{
 hello2()
-}
+
 }

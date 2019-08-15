@@ -1,7 +1,5 @@
 #include <Rcpp.h>
 using namespace Rcpp;
-//' @useDynLib RcppPkgDemo
-//' @importFrom Rcpp sourceCpp
 
 // Since this project has to do with choosing algorithms for generating random
 // numbers, I'll be using the R package microbenchmark to compare
@@ -19,12 +17,11 @@ using namespace Rcpp;
 //' @return The sum of all elements of x as a double
 //'
 //' @examples
-//' \dontrun{
 //' x <- runif(1e3)
 //' print(sumC(x))
-//' }
+//'
 //' @export
-// [[Rcpp::export]]
+// [[Rcpp::export(rng=false)]]
 double sumC(NumericVector x) {
   int n = x.size();
   double total = 0;
@@ -43,12 +40,11 @@ double sumC(NumericVector x) {
 //' @return The sum of all elements of x as a double
 //'
 //' @examples
-//' \dontrun{
 //' x <- runif(1e3)
 //' print(sumI(x))
-//' }
+//'
 //' @export
-// [[Rcpp::export]]
+// [[Rcpp::export(rng=false)]]
 double sumI(NumericVector x) {
   double total = 0;
 
