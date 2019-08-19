@@ -30,9 +30,9 @@ hello2 <- function() {
 }
 
 #' sumC
-#' Sum NumericVector elements using C++
+#' Sum vector elements using C++
 #'
-#' @param x NumericVector to sum
+#' @param x vector to sum
 #'
 #' @return The sum of all elements of x as a double
 #'
@@ -47,9 +47,9 @@ sumC <- function(x) {
 
 #' sumI
 #'
-#' Sum NumericVector elements using C++ with an iterator
+#' Sum vector elements using C++ with an iterator
 #'
-#' @param x NumericVector to sum
+#' @param x vector to sum
 #'
 #' @return The sum of all elements of x as a double
 #'
@@ -60,5 +60,116 @@ sumC <- function(x) {
 #' @export
 sumI <- function(x) {
     .Call('_RcppPkgDemo_sumI', PACKAGE = 'RcppPkgDemo', x)
+}
+
+#' pois_knuth(lambda, size)
+#'
+#' Generate a vector of Poisson random values (Knuth).
+#'
+#' @details
+#' For each value generated, algorithmic complexity is proportional to
+#'   parameter lambda. Underflow occurs for lambda greater than 103.972,
+#'   resulting in junk data.
+#'
+#' @param lambda expected value
+#'
+#' @param size number of elements
+#'
+#' @return a vector of Poisson integers
+#'
+#' @examples
+#' pois_knuth(1, 10)
+#'
+#' @export
+pois_knuth <- function(lambda, size) {
+    .Call('_RcppPkgDemo_pois_knuth', PACKAGE = 'RcppPkgDemo', lambda, size)
+}
+
+#' pois_junhao(lambda, size)
+#'
+#' Generate a vector of Poisson random values (Junhao, based on Knuth).
+#'
+#' @details
+#' This algorithm can handle values of lambda up to 88.722,
+#'   after which point it fails to terminate.
+#'
+#' @param lambda expected value
+#'
+#' @param size number of elements
+#'
+#' @return a vector of Poisson integers
+#'
+#' @examples
+#' pois_junhao(1,10)
+#'
+#' @export
+pois_junhao <- function(lambda, size) {
+    .Call('_RcppPkgDemo_pois_junhao', PACKAGE = 'RcppPkgDemo', lambda, size)
+}
+
+#' pois_iss(lambda, size)
+#'
+#' Generate a vector of Poisson random values using inversion by sequential
+#'   search (Devroye).
+#'
+#' @details
+#' Fails to terminate for lambda greater than 102.873.
+#'
+#' @param lambda expected value
+#'
+#' @param size number of elements
+#'
+#' @return a vector of Poisson integers
+#'
+#' @examples
+#' pois_iss(1, 10)
+#'
+#' @export
+pois_iss <- function(lambda, size) {
+    .Call('_RcppPkgDemo_pois_iss', PACKAGE = 'RcppPkgDemo', lambda, size)
+}
+
+#' pois_mult(lambda, size)
+#'
+#' Generate a vector of Poisson random values using multiplication
+#'   of uniform random variates (Devroye).
+#'
+#' @details
+#' Underflows for lambda greater than 103.972, resulting in junk data.
+#'
+#' @param lambda expected value
+#'
+#' @param size number of elements
+#'
+#' @return a vector of Poisson integers
+#'
+#' @examples
+#' pois_mult(1, 10)
+#'
+#' @export
+pois_mult <- function(lambda, size) {
+    .Call('_RcppPkgDemo_pois_mult', PACKAGE = 'RcppPkgDemo', lambda, size)
+}
+
+#' pois_eit(lambda, size)
+#'
+#' Generate a vector of Poisson random values based upon exponential
+#'   inter-arrival times (Devroye).
+#'
+#' @details
+#' Works for large values of lambda.
+#'
+#' @param lambda expected value
+#'
+#' @param size number of elements
+#'
+#' @return a vector of Poisson integers
+#'
+#' @examples
+#' pois_eit(1, 10)
+#'
+#' @export
+pois_eit <- function(lambda, size) {
+    .Call('_RcppPkgDemo_pois_eit', PACKAGE = 'RcppPkgDemo', lambda, size)
 }
 

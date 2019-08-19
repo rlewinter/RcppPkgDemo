@@ -10,9 +10,9 @@ using namespace Rcpp;
 // and the performance results for a 1000 item vector are compared.
 
 //' sumC
-//' Sum NumericVector elements using C++
+//' Sum vector elements using C++
 //'
-//' @param x NumericVector to sum
+//' @param x vector to sum
 //'
 //' @return The sum of all elements of x as a double
 //'
@@ -33,9 +33,9 @@ double sumC(NumericVector x) {
 
 //' sumI
 //'
-//' Sum NumericVector elements using C++ with an iterator
+//' Sum vector elements using C++ with an iterator
 //'
-//' @param x NumericVector to sum
+//' @param x vector to sum
 //'
 //' @return The sum of all elements of x as a double
 //'

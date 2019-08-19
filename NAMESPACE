@@ -2,6 +2,11 @@
 
 export(hello)
 export(hello2)
+export(pois_eit)
+export(pois_iss)
+export(pois_junhao)
+export(pois_knuth)
+export(pois_mult)
 export(sumC)
 export(sumI)
 importFrom(Rcpp,sourceCpp)

@@ -3,19 +3,19 @@
 \name{sumC}
 \alias{sumC}
 \title{sumC
-Sum NumericVector elements using C++}
+Sum vector elements using C++}
 \usage{
 sumC(x)
 }
 \arguments{
-\item{x}{NumericVector to sum}
+\item{x}{vector to sum}
 }
 \value{
 The sum of all elements of x as a double
 }
 \description{
 sumC
-Sum NumericVector elements using C++
+Sum vector elements using C++
 }
 \examples{
 x <- runif(1e3)

@@ -10,18 +10,12 @@ This project uses Rcpp to create an R package implemented in C++.
     I use Roxygen2 to manage documentation, which turns specially formatted
     comments into .Rd files. These are the help files displayed when you
     run ?foo() in the R console, where foo() is a function.
-    The package consists of templated C++ functions for generating random
-    combinatorial objects and random numbers from different distributions
-    using algorithms described in the book Non-Uniform Random Variate Generation
+    The package consists of C++ functions for generating random numbers from the Poisson
+    distribution using algorithms described in the book Non-Uniform Random Variate Generation
     by Luc Devroye.
     Random number generators for various distributions are needed for many
     applications, such as sampling or modeling stochastic processes.
-    This package provides multiple implementations of generators that come with
-    performance trade-offs, so users can choose the implementation best suited
-    to their needs.
+    This project is intended as an exercise in package development with C++ for R.
+    It is also a good reference and reusable foundation, since the options and setup
+    reflect the type of requirements I'll most likely encounter in future projects.
 }
-\section{RcppPkgDemo functions}{
-
-The foo functions ...
-}
-

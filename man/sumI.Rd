@@ -7,13 +7,13 @@
 sumI(x)
 }
 \arguments{
-\item{x}{NumericVector to sum}
+\item{x}{vector to sum}
 }
 \value{
 The sum of all elements of x as a double
 }
 \description{
-Sum NumericVector elements using C++ with an iterator
+Sum vector elements using C++ with an iterator
 }
 \examples{
 x <- runif(1e3)

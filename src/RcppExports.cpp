@@ -42,12 +42,77 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// pois_knuth
+IntegerVector pois_knuth(float lambda, unsigned int size);
+RcppExport SEXP _RcppPkgDemo_pois_knuth(SEXP lambdaSEXP, SEXP sizeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< float >::type lambda(lambdaSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type size(sizeSEXP);
+    rcpp_result_gen = Rcpp::wrap(pois_knuth(lambda, size));
+    return rcpp_result_gen;
+END_RCPP
+}
+// pois_junhao
+IntegerVector pois_junhao(float lambda, unsigned int size);
+RcppExport SEXP _RcppPkgDemo_pois_junhao(SEXP lambdaSEXP, SEXP sizeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< float >::type lambda(lambdaSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type size(sizeSEXP);
+    rcpp_result_gen = Rcpp::wrap(pois_junhao(lambda, size));
+    return rcpp_result_gen;
+END_RCPP
+}
+// pois_iss
+IntegerVector pois_iss(float lambda, unsigned int size);
+RcppExport SEXP _RcppPkgDemo_pois_iss(SEXP lambdaSEXP, SEXP sizeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< float >::type lambda(lambdaSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type size(sizeSEXP);
+    rcpp_result_gen = Rcpp::wrap(pois_iss(lambda, size));
+    return rcpp_result_gen;
+END_RCPP
+}
+// pois_mult
+IntegerVector pois_mult(float lambda, unsigned int size);
+RcppExport SEXP _RcppPkgDemo_pois_mult(SEXP lambdaSEXP, SEXP sizeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< float >::type lambda(lambdaSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type size(sizeSEXP);
+    rcpp_result_gen = Rcpp::wrap(pois_mult(lambda, size));
+    return rcpp_result_gen;
+END_RCPP
+}
+// pois_eit
+IntegerVector pois_eit(double lambda, unsigned int size);
+RcppExport SEXP _RcppPkgDemo_pois_eit(SEXP lambdaSEXP, SEXP sizeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type lambda(lambdaSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type size(sizeSEXP);
+    rcpp_result_gen = Rcpp::wrap(pois_eit(lambda, size));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_RcppPkgDemo_hello", (DL_FUNC) &_RcppPkgDemo_hello, 0},
     {"_RcppPkgDemo_hello2", (DL_FUNC) &_RcppPkgDemo_hello2, 0},
     {"_RcppPkgDemo_sumC", (DL_FUNC) &_RcppPkgDemo_sumC, 1},
     {"_RcppPkgDemo_sumI", (DL_FUNC) &_RcppPkgDemo_sumI, 1},
+    {"_RcppPkgDemo_pois_knuth", (DL_FUNC) &_RcppPkgDemo_pois_knuth, 2},
+    {"_RcppPkgDemo_pois_junhao", (DL_FUNC) &_RcppPkgDemo_pois_junhao, 2},
+    {"_RcppPkgDemo_pois_iss", (DL_FUNC) &_RcppPkgDemo_pois_iss, 2},
+    {"_RcppPkgDemo_pois_mult", (DL_FUNC) &_RcppPkgDemo_pois_mult, 2},
+    {"_RcppPkgDemo_pois_eit", (DL_FUNC) &_RcppPkgDemo_pois_eit, 2},
     {NULL, NULL, 0}
 };
 
